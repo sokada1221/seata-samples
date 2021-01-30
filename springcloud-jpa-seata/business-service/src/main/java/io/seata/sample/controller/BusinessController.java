@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
 public class BusinessController {
 
@@ -18,7 +20,13 @@ public class BusinessController {
      */
     @RequestMapping("/purchase/commit")
     public Boolean purchaseCommit() {
-        businessService.purchase("1001", "2001", 1);
+//        long startTime = System.nanoTime();
+        Random random = new Random();
+        int userId = random.nextInt(128 - 1) + 1;
+        int commodityCode = random.nextInt(128 - 1) + 1;
+        businessService.purchase(Integer.toString(userId), Integer.toString(commodityCode), 1);
+//        long elapsedTime = System.nanoTime() - startTime;
+//        System.out.println("Total execution time in millis: " + elapsedTime/1000000);
         return true;
     }
 
