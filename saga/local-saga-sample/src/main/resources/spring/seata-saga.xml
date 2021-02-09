@@ -30,7 +30,7 @@
     </bean>
 
     <jdbc:initialize-database data-source="dataSource">
-        <jdbc:script location="classpath:sql/h2_init.sql" />
+        <jdbc:script location="classpath:sql/mysql.sql" />
     </jdbc:initialize-database>
 
     <bean id="stateMachineEngine" class="io.seata.saga.engine.impl.ProcessCtrlStateMachineEngine">
